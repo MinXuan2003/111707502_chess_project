@@ -8,37 +8,25 @@ Original file is located at
 """
 
 def can_king_move(x1, y1, x2, y2, checkerboard):
-    # 如果国王停留在原地，返回"No"
+
     if (x1, y1) == (x2, y2):
         return "No"
 
-    # 计算水平和垂直的差值
+
     dx = abs(x2 - x1)
     dy = abs(y2 - y1)
 
-    # 判断是否在国王的可移动范围内
+
     if dx <= 1 and dy <= 1:
-        # 检查目标位置是否有棋子
+
         if checkerboard[x2][y2] == 0:
             return "Yes"
 
     return "No"
 
-# 读取输入
+
 x1, y1 = map(int, input().split())
 x2, y2 = map(int, input().split())
 
-# 假设的棋盘
-checkerboard = [
-    [1, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 1, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0]
-]
 
-# 判断是否能从 (x1, y1) 移动到 (x2, y2)
 print(can_king_move(x1, y1, x2, y2, checkerboard))
